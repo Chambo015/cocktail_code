@@ -9,7 +9,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      redirect: to => {
+      redirect: () => {
         const store =  useCocktailStore()
         return { name: 'cocktails' , params: {title: store.cocktailsTitle[0]} }
       },
@@ -18,7 +18,7 @@ const router = createRouter({
       path: '/:title',
       name: 'cocktails',
       component: HomeView,
-      beforeEnter(to, from) {
+      beforeEnter(to) {
         const store =  useCocktailStore()
         const exists = store.cocktailsTitle.includes(to.params.title as string);
         if (!exists)

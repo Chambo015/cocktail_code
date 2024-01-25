@@ -1,18 +1,13 @@
 import type { ICocktails } from '../types'
 import axios from 'axios'
 
-export function getCocktailByTitle(title: string) {
-  let data
-  axios
-    .get(`https://www.thecocktaildb.com/api/json/v1/1/random.php`, {
+export async function getCocktailByTitle(title: string) {
+  return await axios.get<ICocktails>(
+    `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${title}`,
+    {
       headers: {
         'Content-Type': 'application/json'
-      },
-      withCredentials: true
-    })
-    .then((res) => {
-      data = res.data
-    })
-
-  return data 
+      }
+    }
+  )
 }
