@@ -32,6 +32,7 @@ watch(() => props.imgUrl, () => isLoadedImg.value = false)
 <style scoped lang="scss">
 .wrapper {
   position: relative;
+  margin-top: 40px;
   max-width: min(100%, 400px);
   aspect-ratio: 1;
   &__img-spinner {
@@ -44,7 +45,6 @@ watch(() => props.imgUrl, () => isLoadedImg.value = false)
   }
   &__img {
     max-width: min(100%, 400px);
-    margin-top: 60px;
     object-fit: cover;
     height: auto;
   }
